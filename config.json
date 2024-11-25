@@ -1,0 +1,5 @@
+{
+    "nrOfPosts": 500,
+    "hashtag": "<HASHTAG_TO_SCRAPE>",
+    "sessiontoken": "<YOUR_IG_SESSIONTOKEN>"
+}
