@@ -72,8 +72,6 @@ def scrapeHashtag(nrOfPosts, hashtag, sessiontoken, ds_user_id):
             'query': f'#{hashtag}'
         }
         firstPostsSet = requests.get(f'https://www.instagram.com/api/v1/fbsearch/web/top_serp/?query=%23{hashtag}{urlTail}',headers=headers)
-
-        data = json.loads(firstPostsSet.text)
         
         postsre = re.findall(r'"media":(\s*\{[^}]*\})',firstPostsSet.text)
         
@@ -106,6 +104,7 @@ def scrapeHashtag(nrOfPosts, hashtag, sessiontoken, ds_user_id):
                     }
                 
                 posts.append(post)
+                print(len(posts))
             
         next_max_id = re.search(r'"next_max_id": "(.*?)"',firstPostsSet.text)
         rank_token = re.search(r'""rank_token": "(.*?)"',firstPostsSet.text)
